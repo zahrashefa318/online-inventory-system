@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{filename}}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    
+</head>
+    
+    
+    <script >
+        function show(divid){
+            document.getElementById(divid).style.visibility='visible';
+        }
+    </script>
+    
+</head>
+<body>
+    
+    
+
+<div id="maindivpage2">  
+ <div id="h1div"><h1>{{title}}</h1></div>
+ {% if title == 'Fresh_Foods'%}
+    <style >
+        #maindivpage2{
+            background: url('{{url_for("static", filename="freshbg.jpg")}}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    {% elif title == 'Bakery'%}
+    <style>
+    #maindivpage2{
+        background: url('{{url_for("static", filename="bkbg.jpg")}}');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+{% elif title == 'Meats'%}
+<style>
+#maindivpage2{
+    background: url('{{url_for("static", filename="mbg.jpg")}}');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+{% elif title == 'Oils'%}
+<style>
+#maindivpage2{
+    background: url('{{url_for("static", filename="obg.jpg")}}');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+{% elif title == 'Snacks'%}
+<style>
+#maindivpage2{
+    background: url('{{url_for("static", filename="sbg.jpg")}}');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+{% elif title == 'Beverages'%}
+<style>
+#maindivpage2{
+    background: url('{{url_for("static", filename="bbg.jpg")}}');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+{% endif %}
+
+ <div id="tablediv">
+  <table>
+    <thead class="head">
+        <th>Number</th>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </thead>
+    <tbody>
+        {% for row in fileContent%}
+        <tr>
+           <td>{{loop.index}}</td>
+           {% for item in row.split(',')%}
+    
+                
+                 <td>{{item}}</td>
+                 
+           {% endfor %}
+        </tr>   
+        {% endfor %}
+    </tbody>
+  </table> 
+</div>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    <div class="alert alert-dismissible fade show" role="alert">
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}
+{% endwith %}
+<div id="alterdiv">  
+    <div id="adddiv" class="alterdivs">
+      <button type="button" class="btns" style="height: 22px; width: 300px;" id="addbtn" onclick="show('addHundler')">Add</button>
+      <div id="addHundler" class="hundler">
+        <form action="{{ url_for('add', filename=request.args.get('filename'), title=request.args.get('title')) }}" method="POST" class="my-form" id="addform" >
+            <div class="form_group">
+            <label for="itemtoadd">Enter the item name :</label>
+            <input type="text" id="itemtoadd" name="itemtoadd">
+        </div>
+        <div class="form_group">
+            <label for="quantitytoadd">Enter the item quantity :</label>
+            <input type="text" id="quantitytoadd" name="quantitytoadd">
+        </div>
+        <div class="form_group">
+            <label for="itemtoadd">Enter the item price :</label>
+            <input type="text" id="pricetoadd" name="pricetoadd">
+        </div>
+        <div class="form_group">
+            <button type="submit" id="submitbtn">Submit</button>
+        </div>
+        </form>
+      </div>
+    </div>
+
+
+    <div id="deletediv" class="alterdivs">
+      <button type="button" class="btns" style="height: 22px; width: 300px;" onclick="show('delHundler')" id="delbtn">Delete</button>
+      <div id="delHundler" class="hundler">
+        <form action="{{ url_for('delete', filename=request.args.get('filename'), title=request.args.get('title')) }}" method="post" id="delform">
+            <div class="form_group">
+            <label for="itemtodel">Enter the item to be deleted:</label>
+            <input type="text" id="itemtodel" name="delItem">
+            </div>
+            <div class="form_group">
+            <button type="submit">Remove</button>
+            </div>
+        </form>
+
+      </div>
+    </div>
+    <div id="changediv" class="alterdivs">
+        <button type="button" class="btns" style="height: 22px; width: 300px;" onclick="show('chngHundler')">Change</button>
+        <div id="chngHundler" class="hundler">
+            <form action="{{ url_for('change', filename=request.args.get('filename'), title=request.args.get('title')) }}" method="post">
+                <div class="form_group">
+                <label for="itemtochng">Enter the item to be changed:</label>
+                <input type="text" id="itemtochng" name="chItem">
+                </div>
+                <div class="form_group">
+                <label for="newqty">Enter new quantity: </label>
+                <input type="text" id="newqty" name="chQuantity">
+                </div>
+                <div class="form_group">
+                <label for="newprc">Enter new price: </label>
+                <input type="text" id="newprc" name="chPrice">
+               </div>
+               <div class="form_group">
+                <button type="submit">Commit</button>
+               </div>
+            </form>
+        </div>
+
+    </div>   
+</div>
+<div id="goHome"><a href="{{url_for('home')}}" style="color:aqua;">Go to home page.</a></div>
+</div> 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

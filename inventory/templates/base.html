@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static' , filename='style.css')}}">
+</head>
+<body>
+  <div>
+    <h1 class="header">Super Market Inventory</h1>
+  </div>
+  <div id="main" >
+    <div id="fresh">
+      <img class="img" src="{{url_for('static' , filename='fresh.jpg')}}" >
+      <a href="{{url_for('view', filename='inventory/fresh.txt', title='Fresh_Foods')}}" class="links">View and edit fresh foods items</a>
+
+
+    </div>
+
+    <div id="bakery">
+      <img class="img" src="{{url_for('static' , filename='bakery.jpg')}}" >
+      <a href="{{url_for('view', filename='inventory/bakery.txt', title='Bakery')}}" class="links">View and edit bakery items</a>
+
+    </div>
+
+    <div id="meats">
+      <img class="img" src="{{url_for('static' , filename='meats.jpg')}}" >
+      <a href="{{url_for('view', filename='inventory/meats.txt', title='Meats')}}" class="links">View and edit meats items</a>
+
+    </div>
+    <div id="oils">
+      <img class="img" src="{{url_for('static' , filename='oils.jpg')}}" >
+      <a href="{{url_for('view', filename='inventory/oils.txt', title='Oils')}}" class="links">View and edit oils items</a>
+
+    </div>
+
+    <div id="snaks">
+      <img class="img" src="{{url_for('static' , filename='snaks.jpg')}}" >
+      <a href="{{url_for('view', filename='inventory/snaks.txt', title='Snacks')}}" class="links">View and edit snaks items</a>
+
+    </div>
+
+    <div id="beverages">
+      <img class="img" src="{{url_for('static' , filename='beverages.jpg')}}" >
+      <a href="{{url_for('view', filename='inventory/beverages.txt', title='Beverages')}}" class="links">View and edit beverages items</a>
+
+
+    </div>
+  </div>
+            
+
+      
+</body>
+</html>
