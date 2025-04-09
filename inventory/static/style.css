@@ -1,8 +1,10 @@
 #h1div{
-    height: 40px;
-    width: 300px;
+    height:1%;
+    width: 50%;
     text-align: center;
     color: blueviolet;
+    align-items: center;
+    
 }
 .header{
     text-align: center;
@@ -28,21 +30,21 @@
 
 #maindivpage2{
     display: grid;
-    grid-template-rows: 2fr 1fr;
-    grid-template-columns: auto;
-    background-color: blue;
-    margin-left: 100px;
-    margin-right: 100px;
+    grid-template-rows: 1fr 5fr 3fr 1fr;
+    grid-template-columns:auto;
     justify-items: center;
-    height: 800px;
+    overflow:auto;
 }
 
 #alterdiv{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
-    gap: 50px;
+    gap: 0px;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: -150px;
     
 }
 .alterdivs{
@@ -50,16 +52,18 @@
     grid-template-columns: auto;
     grid-template-rows: auto;
     margin: 0 auto; 
+    height: 50px;
    
 }
 
 .hundler{
-    max-width: 300px;  
+    width: 100%; 
     padding: 20px;
     background-color:aqua;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     visibility: hidden;
+    height: 100%;
 }
 
 .form_group{
@@ -82,17 +86,15 @@
     font-weight: normal;
 }
 #tablediv{
-    width: 60%;
-    height: 400px;
+    width: 85%;
+    height: 60%;
     background-color: aqua;
-    margin-top: -100px;
-    margin-bottom: 20px;
     overflow-y: auto;
     
 }
 table{
     width: 100%;
-    height: 400px;
+    height: 100%;
     margin: 0 auto;
     border-collapse: collapse;
     table-layout: fixed;
@@ -108,13 +110,70 @@ table td{
     height: 5px;
     border: 1px solid black;
 }
-#deletediv{
-    margin-bottom: 125px;
 
-}
 .btns{
-    background-color: rgb(208, 127, 255);;
+    background-color: rgb(208, 127, 255);
+    width: 100%;
+    height: 22px;
+}
+.innerelementofalters{
+    margin-bottom: -7px;
+    height: 30px;
+}
+
+@media (min-width:768px)and (max-width: 1023px) {
+    #main{
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
+@media (min-width:480px) and (max-width:767px) {
+    #main{
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
+@media (min-width:768px)and (max-width: 1023px) {
+    
+#maindivpage2{
+    grid-template-rows: 1fr 4fr 2fr 1fr;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    
+}
+#tablediv{
+    max-width: 85%;
+    min-width: 60%;   
+} 
+#alterdiv{
+   
+    max-width: 80%;
+    min-width: 50%;     
+    
+    
+} 
 }
 
 
+@media (min-width:480px) and (max-width:767px) {
+    
+    #maindivpage2{
+        grid-template-rows: 1fr 2fr 1fr;
+    }
+    #tablediv{
+        max-width: 85%;
+       min-width: 60%px;     
+    } 
+    #alterdiv{
+        grid-template-columns: 1fr;
+        max-width: 88%;
+        min-width: 55%; 
+        margin-top: -10%;
+          
+        
+        
+    }  
+        
+    }
 
