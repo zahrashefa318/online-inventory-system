@@ -113,7 +113,7 @@
 {% endwith %}
 <div id="alterdiv">  
     <div id="adddiv" class="alterdivs">
-      <button type="button" class="btns" style="height: 22px; width: 300px;" id="addbtn" onclick="show('addHundler')">Add</button>
+      <button type="button" class="btns"  id="addbtn" onclick="show('addHundler')">Add</button>
       <div id="addHundler" class="hundler">
         <form action="{{ url_for('add', filename=request.args.get('filename'), title=request.args.get('title')) }}" method="POST" class="my-form" id="addform" >
             <div class="form_group">
@@ -137,7 +137,7 @@
 
 
     <div id="deletediv" class="alterdivs">
-      <button type="button" class="btns" style="height: 22px; width: 300px;" onclick="show('delHundler')" id="delbtn">Delete</button>
+      <button type="button" class="btns"  onclick="show('delHundler')" id="delbtn">Delete</button>
       <div id="delHundler" class="hundler">
         <form action="{{ url_for('delete', filename=request.args.get('filename'), title=request.args.get('title')) }}" method="post" id="delform">
             <div class="form_group">
@@ -152,7 +152,7 @@
       </div>
     </div>
     <div id="changediv" class="alterdivs">
-        <button type="button" class="btns" style="height: 22px; width: 300px;" onclick="show('chngHundler')">Change</button>
+        <button type="button" class="btns"  onclick="show('chngHundler')">Change</button>
         <div id="chngHundler" class="hundler">
             <form action="{{ url_for('change', filename=request.args.get('filename'), title=request.args.get('title')) }}" method="post">
                 <div class="form_group">
