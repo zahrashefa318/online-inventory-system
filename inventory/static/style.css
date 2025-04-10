@@ -169,11 +169,27 @@ table td{
         grid-template-columns: 1fr;
         max-width: 88%;
         min-width: 55%; 
-        margin-top: -10%;
-          
-        
-        
+        margin-top: -10%;     
     }  
         
     }
+@media (max-width: 480px) {
+  #main{
+        grid-template-columns: 1fr;
+    }
+     #maindivpage2{
+        grid-template-rows: 1fr 2fr 1fr;
+    }
+    #tablediv{
+        max-width: 85%;
+       min-width: 60%px;     
+    } 
+    #alterdiv{
+        grid-template-columns: 1fr;
+        max-width: 88%;
+        min-width: 55%; 
+        margin-top: -10%;     
+    } 
+    
+}
 
