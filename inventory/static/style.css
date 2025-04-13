@@ -91,6 +91,7 @@
     height: 60%;
     background-color: aqua;
     overflow-y: auto;
+    margin:0 auto;
     
 }
 table{
