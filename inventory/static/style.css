@@ -80,6 +80,7 @@
 .alert-error {
     color: red;
     font-weight: bold;
+    background-color:yellow;
 }
 .alert-info {
     color: blue;
